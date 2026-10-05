@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Secret Surprise ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background hearts */
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: float 7s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 45%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 65%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 85%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* Main box */
+
+        .container {
+            width: 90%;
+            max-width: 430px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+
+        /* Password screen */
+
+        .password-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+            animation: appear 1s ease;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        .lock {
+            font-size: 70px;
+            animation: lockMove 2s infinite;
+        }
+
+        @keyframes lockMove {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-8deg);
+            }
+
+            75% {
+                transform: rotate(8deg);
+            }
+
+        }
+
+
+        h1 {
+            color: #ff3f72;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+
+        /* Password input */
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+
+            border: 2px solid #ff9ab5;
+            border-radius: 15px;
+
+            outline: none;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        input:focus {
+            border-color: #ff3f72;
+            box-shadow: 0 0 10px rgba(255, 63, 114, 0.3);
+        }
+
+
+        /* Unlock button */
+
+        button {
+            margin-top: 18px;
+
+            padding: 14px 30px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: linear-gradient(45deg, #ff3f72, #ff6b9a);
+
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(255, 63, 114, 0.4);
+        }
+
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            min-height: 22px;
+        }
+
+
+        /* Gift section */
+
+        .gift-screen {
+            display: none;
+            text-align: center;
+            color: white;
+        }
+
+
+        .gift {
+            font-size: 130px;
+
+            animation:
+                giftAppear 1s ease,
+                giftBounce 1.5s ease-in-out 1s infinite;
+        }
+
+
+        @keyframes giftAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes giftBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+        }
+
+
+        .gift-title {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+
+        .gift-text {
+            font-size: 18px;
+        }
+
+
+        /* Opening animation */
+
+        .open-gift {
+            animation: openGift 1.5s forwards;
+        }
+
+        @keyframes openGift {
+
+            0% {
+                transform: scale(1) rotate(0);
+            }
+
+            40% {
+                transform: scale(1.2) rotate(-5deg);
+            }
+
+            70% {
+                transform: scale(1.3) rotate(5deg);
+            }
+
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* Final message */
+
+        .final-message {
+            display: none;
+            color: white;
+            animation: finalAppear 1.5s ease;
+        }
+
+        @keyframes finalAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+        .final-message h1 {
+            color: white;
+            font-size: 38px;
+        }
+
+        .final-message p {
+            font-size: 20px;
+        }
+
+
+        .continue-button {
+            background: white;
+            color: #ff3f72;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Floating hearts -->
+
+    <div class="heart">❤️</div>
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+
+
+    <div class="container">
+
+
+        <!-- PASSWORD SCREEN -->
+
+        <div class="password-box" id="passwordBox">
+
+            <div class="lock" id="lock">
+                🔐
+            </div>
+
+            <h1>Wait... 🤫</h1>
+
+            <p class="subtitle">
+                There is something special waiting for you...
+                <br>
+                But first, you need the secret password ❤️
+            </p>
+
+
+            <input type="password" id="password" placeholder="Enter secret password">
+
+
+            <button onclick="checkPassword()">
+                🔓 Unlock Surprise
+            </button>
+
+
+            <div id="message"></div>
+
+        </div>
+
+
+        <!-- GIFT SCREEN -->
+
+        <div class="gift-screen" id="giftScreen">
+
+            <div class="gift" id="gift">
+                🎁
+            </div>
+
+            <h1 class="gift-title">
+                You found it! 💕
+            </h1>
+
+            <p class="gift-text">
+                Your surprise is inside...
+            </p>
+
+        </div>
+
+
+        <!-- FINAL OPENING MESSAGE -->
+
+        <div class="final-message" id="finalMessage">
+
+            <h1>
+                ✨ Surprise! ✨
+            </h1>
+
+            <p>
+                Something special was made just for you ❤️
+            </p>
+
+            <button class="continue-button" onclick="goToBirthday()">
+                Open My Surprise 🎂
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        function checkPassword() {
+
+            let password =
+                document.getElementById("password").value;
+
+            let message =
+                document.getElementById("message");
+
+
+            if (password === "dssd") {
+
+                message.style.color = "green";
+
+                message.innerHTML =
+                    "✓ Correct password! 🔓";
+
+
+                // Change lock
+
+                document.getElementById("lock").innerHTML =
+                    "🔓";
+
+
+                // Hide password box
+
+                setTimeout(function () {
+
+                    document.getElementById("passwordBox").style.display =
+                        "none";
+
+                    document.getElementById("giftScreen").style.display =
+                        "block";
+
+                }, 1000);
+
+
+                // Start gift opening
+
+                setTimeout(function () {
+
+                    document.getElementById("gift")
+                        .classList.add("open-gift");
+
+                }, 2500);
+
+
+                // Show final message
+
+                setTimeout(function () {
+
+                    document.getElementById("giftScreen").style.display =
+                        "none";
+
+                    document.getElementById("finalMessage").style.display =
+                        "block";
+
+                }, 3800);
+
+
+            } else {
+
+                message.style.color = "red";
+
+                message.innerHTML =
+                    "❌ Wrong password... Try again! 😜";
+
+
+                // Shake the box
+
+                document.getElementById("passwordBox").animate(
+
+                    [
+                        { transform: "translateX(0)" },
+                        { transform: "translateX(-10px)" },
+                        { transform: "translateX(10px)" },
+                        { transform: "translateX(-10px)" },
+                        { transform: "translateX(0)" }
+                    ],
+
+                    {
+                        duration: 400
+                    }
+
+                );
+
+            }
+
+        }
+
+
+        // Press Enter
+
+        document.getElementById("password")
+            .addEventListener("keypress", function (event) {
+
+                if (event.key === "Enter") {
+
+                    checkPassword();
+
+                }
+
+            });
+
+
+        // Go to birthday page
+
+        function goToBirthday() {
+
+            window.location.href = "wish.html";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

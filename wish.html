@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================== */
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(135deg,
+                    #ff758c,
+                    #ff7eb3,
+                    #fad0c4);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow-x: hidden;
+
+            color: white;
+
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================== */
+
+        .container {
+
+            text-align: center;
+
+            width: 90%;
+
+            max-width: 700px;
+
+            padding: 30px 20px;
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+        /* =========================
+           SMALL TITLE
+        ========================== */
+
+        .small-title {
+
+            font-size: 22px;
+
+            animation:
+                fadeIn 1s ease;
+
+        }
+
+
+        /* =========================
+           MAIN TITLE
+        ========================== */
+
+        h1 {
+
+            font-size: 55px;
+
+            margin: 10px 0;
+
+            text-shadow:
+                0 0 10px white,
+                0 0 25px rgba(255, 255, 255, 0.6);
+
+            animation:
+                titleAnimation 2s ease;
+
+        }
+
+
+        @keyframes titleAnimation {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.3);
+
+            }
+
+
+            60% {
+
+                transform:
+                    scale(1.15);
+
+            }
+
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =========================
+           NAME
+        ========================== */
+
+        .name {
+
+            font-size: 40px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+            animation:
+                nameAnimation 2s ease 0.5s both;
+
+        }
+
+
+        @keyframes nameAnimation {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================
+           PHOTO
+        ========================== */
+
+        .photo-container {
+
+            margin: 20px auto;
+
+            width: 230px;
+
+            height: 230px;
+
+            border-radius: 50%;
+
+            padding: 7px;
+
+            background: white;
+
+            box-shadow:
+                0 0 20px white,
+                0 0 40px rgba(255, 255, 255, 0.6);
+
+            animation:
+                photoAppear 2s ease;
+
+        }
+
+
+        .photo-container img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+        }
+
+
+        @keyframes photoAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================== */
+
+        .message {
+
+            font-size: 19px;
+
+            line-height: 1.6;
+
+            margin: 25px auto;
+
+            max-width: 600px;
+
+            animation:
+                fadeIn 2s ease 1s both;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        button {
+
+            border: none;
+
+            padding: 15px 25px;
+
+            margin: 10px;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            background: white;
+
+            color: #ff477e;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        button:hover {
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================== */
+
+        #musicButton {
+
+            display: none;
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            z-index: 50;
+
+            background: white;
+
+            color: #ff477e;
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================== */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -40px;
+
+            font-size: 25px;
+
+            animation:
+                heartFloat 7s linear infinite;
+
+            opacity: 0.8;
+
+            z-index: 1;
+
+        }
+
+
+        .heart:nth-child(1) {
+
+            left: 5%;
+
+            animation-delay: 0s;
+
+        }
+
+
+        .heart:nth-child(2) {
+
+            left: 20%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .heart:nth-child(3) {
+
+            left: 40%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        .heart:nth-child(4) {
+
+            left: 65%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .heart:nth-child(5) {
+
+            left: 85%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        @keyframes heartFloat {
+
+            0% {
+
+                transform:
+                    translateY(0) rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+
+            20% {
+
+                opacity: 1;
+
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(-110vh) rotate(360deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           CONFETTI
+        ========================== */
+
+        .confetti {
+
+            position: fixed;
+
+            width: 10px;
+
+            height: 10px;
+
+            top: -20px;
+
+            animation:
+                confettiFall 4s linear forwards;
+
+            z-index: 10;
+
+        }
+
+
+        @keyframes confettiFall {
+
+            0% {
+
+                transform:
+                    translateY(0) rotate(0deg);
+
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(110vh) rotate(720deg);
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .name {
+
+                font-size: 30px;
+
+            }
+
+
+            .photo-container {
+
+                width: 190px;
+
+                height: 190px;
+
+            }
+
+
+            .message {
+
+                font-size: 17px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SONG
+         ONLY ONE AUDIO ELEMENT
+    ========================== -->
+
+    <audio id="birthdaySong" loop>
+
+        <source src="song.mpeg" type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- =========================
+         MUSIC FALLBACK BUTTON
+    ========================== -->
+
+    <button id="musicButton" onclick="playMusic()">
+
+        🎵 Play Music
+
+    </button>
+
+
+    <!-- =========================
+         FLOATING HEARTS
+    ========================== -->
+
+    <div class="heart">❤️</div>
+
+    <div class="heart">💗</div>
+
+    <div class="heart">💕</div>
+
+    <div class="heart">💖</div>
+
+    <div class="heart">❤️</div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <div class="container">
+
+
+        <div class="small-title">
+
+            🎉 Today is a very special day 🎉
+
+        </div>
+
+
+        <h1>
+
+            HAPPY BIRTHDAY 🎂
+
+        </h1>
+
+
+        <!-- FRIEND'S NAME -->
+
+        <div class="name">
+
+            My babes ❤️
+
+        </div>
+
+
+        <!-- FRIEND'S PHOTO -->
+
+        <div class="photo-container">
+
+            <img src="friend.png" alt="Birthday Friend">
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            Wishing you a beautiful birthday
+            filled with more happiness,
+            more love and countless
+            unforgettable memories. 💕
+
+            Be the star that always twinkles.
+
+            <br>
+            <br>
+
+        </div>
+
+
+        <!-- OPEN LETTER -->
+
+        <button onclick="openLetter()">
+
+            💌 Open Your Letter
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           GET SONG
+        ========================== */
+
+        const song =
+            document.getElementById(
+                "birthdaySong"
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        song.volume = 0.7;
+
+
+        /* =========================
+           CONFETTI
+        ========================== */
+
+        function createConfetti() {
+
+
+            for (
+                let i = 0;
+                i < 100;
+                i++
+            ) {
+
+
+                let confetti =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                confetti.className =
+                    "confetti";
+
+
+                confetti.style.left =
+                    Math.random() * 100 +
+                    "vw";
+
+
+                confetti.style.animationDelay =
+                    Math.random() * 3 +
+                    "s";
+
+
+                confetti.style.background =
+                    "hsl(" +
+                    Math.random() * 360 +
+                    ", 100%, 70%)";
+
+
+                document.body.appendChild(
+                    confetti
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           START PAGE
+        ========================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+
+                createConfetti();
+
+
+                /*
+                    Start the song.
+                */
+
+                song.play()
+                    .then(function () {
+
+                        musicButton.style.display =
+                            "none";
+
+                    })
+                    .catch(function () {
+
+
+                        /*
+                            Browser blocked
+                            autoplay.
+
+                            Show Play Music button.
+                        */
+
+                        musicButton.style.display =
+                            "block";
+
+                    });
+
+            }
+        );
+
+
+        /* =========================
+           PLAY MUSIC
+        ========================== */
+
+        function playMusic() {
+
+
+            song.play()
+                .then(function () {
+
+                    musicButton.style.display =
+                        "none";
+
+                })
+                .catch(function () {
+
+                    musicButton.style.display =
+                        "block";
+
+                });
+
+        }
+
+
+        /* =========================
+           SAVE SONG POSITION
+        ========================== */
+
+        /*
+            Save the current position
+            every 500 milliseconds.
+        */
+
+        setInterval(
+            function () {
+
+
+                if (!song.paused) {
+
+
+                    localStorage.setItem(
+                        "songTime",
+                        song.currentTime
+                    );
+
+                }
+
+
+            },
+            500
+        );
+
+
+        /* =========================
+           OPEN LETTER
+        ========================== */
+
+        function openLetter() {
+
+
+            /*
+                Save the exact position
+                before leaving this page.
+            */
+
+            localStorage.setItem(
+                "songTime",
+                song.currentTime
+            );
+
+
+            /*
+                Open letter page.
+            */
+
+            window.location.href =
+                "letter.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

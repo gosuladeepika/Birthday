@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Letter For You ❤️</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY / BACKGROUND
+        ========================== */
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.48)),
+                url("friend.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px 15px;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================== */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            animation:
+                floatHeart 8s linear infinite;
+
+            opacity: 0.7;
+
+            z-index: 2;
+
+            pointer-events: none;
+
+        }
+
+
+        .heart:nth-child(1) {
+
+            left: 5%;
+
+            animation-delay: 0s;
+
+        }
+
+
+        .heart:nth-child(2) {
+
+            left: 20%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .heart:nth-child(3) {
+
+            left: 40%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        .heart:nth-child(4) {
+
+            left: 65%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .heart:nth-child(5) {
+
+            left: 85%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform:
+                    translateY(0) rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+
+            20% {
+
+                opacity: 1;
+
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(-110vh) rotate(360deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           LETTER
+        ========================== */
+
+        .letter {
+
+            width: 100%;
+
+            max-width: 700px;
+
+            background:
+                rgba(255, 250, 245, 0.94);
+
+            padding: 45px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35);
+
+            position: relative;
+
+            z-index: 5;
+
+            animation:
+                letterAppear 1.5s ease;
+
+        }
+
+
+        @keyframes letterAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(60px) scale(0.9);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0) scale(1);
+
+            }
+
+        }
+
+
+        /* =========================
+           TOP HEART
+        ========================== */
+
+        .top-heart {
+
+            text-align: center;
+
+            font-size: 55px;
+
+            animation:
+                heartBeat 1.5s infinite;
+
+        }
+
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+
+            }
+
+
+            50% {
+
+                transform: scale(1.15);
+
+            }
+
+        }
+
+
+        /* =========================
+           HEADING
+        ========================== */
+
+        h1 {
+
+            text-align: center;
+
+            color: #e8436b;
+
+            font-size: 38px;
+
+            margin-top: 10px;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 16px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           LETTER TEXT
+        ========================== */
+
+        .letter-text {
+
+            color: #4b3b40;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .letter-text p {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .highlight {
+
+            color: #e8436b;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           SIGNATURE
+        ========================== */
+
+        .signature {
+
+            margin-top: 35px;
+
+            text-align: right;
+
+            font-size: 20px;
+
+            color: #e8436b;
+
+            font-style: italic;
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .button-area {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(45deg,
+                    #ff477e,
+                    #ff7aa2);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(232, 67, 107, 0.3);
+
+            transition: 0.3s;
+
+        }
+
+
+        button:hover {
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 10px 25px rgba(232, 67, 107, 0.4);
+
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================== */
+
+        #musicButton {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            z-index: 50;
+
+            display: none;
+
+            padding: 12px 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           FINAL MESSAGE
+        ========================== */
+
+        #finalMessage {
+
+            display: none;
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            animation:
+                finalAppear 1s ease;
+
+        }
+
+
+        #finalMessage h2 {
+
+            color: #e8436b;
+
+            font-size: 30px;
+
+        }
+
+
+        #finalMessage p {
+
+            color: #555;
+
+            font-size: 18px;
+
+        }
+
+
+        @keyframes finalAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(0.5);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 20px 10px;
+
+            }
+
+
+            .letter {
+
+                padding: 28px 20px;
+
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .letter-text {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+
+            }
+
+
+            .top-heart {
+
+                font-size: 45px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SONG
+    ========================== -->
+
+    <audio id="letterSong" loop>
+
+        <source src="song.mpeg" type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- MUSIC FALLBACK BUTTON -->
+
+    <button id="musicButton" onclick="playMusic()">
+
+        🎵 Play Music
+
+    </button>
+
+
+    <!-- =========================
+         FLOATING HEARTS
+    ========================== -->
+
+    <div class="heart">❤️</div>
+
+    <div class="heart">💗</div>
+
+    <div class="heart">💕</div>
+
+    <div class="heart">💖</div>
+
+    <div class="heart">❤️</div>
+
+
+    <!-- =========================
+         LETTER
+    ========================== -->
+
+    <div class="letter">
+
+
+        <div class="top-heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            A Little Letter For You 💌
+
+        </h1>
+
+
+        <div class="subtitle">
+
+            Some things are better written from the heart...
+
+        </div>
+
+
+        <div class="letter-text">
+
+
+            <p>
+
+                Dear
+
+                <span class="highlight">
+
+                    My Special Friend
+
+                </span>
+
+                ❤️
+
+            </p>
+
+
+            <p>
+
+                Today is the most special day in my life because you have born.
+                Coming to my life and giving me this much importance is the only
+                good thing that happened to me.
+
+            </p>
+
+
+            <p>
+
+                There are some people who come into
+                our lives and slowly become a part
+                of our memories, our happiness,
+                our silly moments and our best days.
+
+                <span class="highlight">
+
+                    You are always in those people.
+
+                </span>
+
+            </p>
+
+
+            <p>
+
+                Thank you for all the laughs,
+                conversations, memories and
+                little moments that made ordinary
+                days feel special. ❤️
+
+            </p>
+
+
+            <p>
+
+                I hope this Birthday of your life
+                brings you lots of happiness,
+                filled with memories by me.
+                I don't want to make your day
+                ordinary so this is just a small
+                gift by my side.
+
+            </p>
+
+
+            <p>
+
+                And whenever life gets difficult,
+                remember that there are people
+                who genuinely wish to see you
+                happy and smiling and I promise
+                you that I could never leave you
+                alone.
+
+                You are always my responsibility.
+
+                Hope you love this letter.
+
+            </p>
+
+
+            <p>
+
+                Once again...
+
+                <br>
+                <br>
+
+                <span class="highlight">
+
+                    HAPPY BIRTHDAY! 🎂🎉❤️
+
+                </span>
+
+            </p>
+
+
+            <div class="signature">
+
+                With lots of love ❤️
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             ONE MORE SURPRISE
+        ========================== -->
+
+        <div class="button-area">
+
+            <button onclick="showFinalMessage()">
+
+                ❤️ One More Surprise
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             FINAL MESSAGE
+        ========================== -->
+
+        <div id="finalMessage">
+
+
+            <h2>
+
+                ✨ You Are Truly Special ✨
+
+            </h2>
+
+
+            <p>
+
+                Some friendships are gifts
+                that life gives us. 🎁
+
+            </p>
+
+
+            <p>
+
+                And I'm really glad
+                you are always one of mine. ❤️
+
+            </p>
+
+
+            <div style="font-size:45px;">
+
+                💕 💖 💕 💖 💕
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           MUSIC CONTINUATION
+        ========================== */
+
+        const letterSong =
+            document.getElementById("letterSong");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+
+        letterSong.volume = 0.7;
+
+
+        /*
+
+           Get the song position
+           saved by wish.html.
+
+        */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+
+                const savedTime =
+                    localStorage.getItem(
+                        "songTime"
+                    );
+
+
+                if (savedTime !== null) {
+
+
+                    /*
+                       Wait until the song
+                       information is loaded.
+                    */
+
+                    letterSong.addEventListener(
+                        "loadedmetadata",
+                        function () {
+
+                            letterSong.currentTime =
+                                parseFloat(savedTime);
+
+                        },
+                        { once: true }
+                    );
+
+                }
+
+
+                /*
+                   Try to continue playing.
+                */
+
+                letterSong.play()
+                    .then(function () {
+
+                        musicButton.style.display =
+                            "none";
+
+                    })
+                    .catch(function () {
+
+                        /*
+                           Browser blocked
+                           automatic playback.
+                        */
+
+                        musicButton.style.display =
+                            "block";
+
+                    });
+
+            }
+        );
+
+
+        /*
+
+           Keep saving the current
+           position every 500ms.
+
+        */
+
+        setInterval(
+            function () {
+
+
+                if (!letterSong.paused) {
+
+
+                    localStorage.setItem(
+                        "songTime",
+                        letterSong.currentTime
+                    );
+
+                }
+
+
+            },
+            500
+        );
+
+
+        /* =========================
+           PLAY MUSIC BUTTON
+        ========================== */
+
+        function playMusic() {
+
+
+            letterSong.play()
+                .then(function () {
+
+                    musicButton.style.display =
+                        "none";
+
+                })
+                .catch(function () {
+
+                    musicButton.style.display =
+                        "block";
+
+                });
+
+        }
+
+
+        /* =========================
+           FINAL SURPRISE
+        ========================== */
+
+        function showFinalMessage() {
+
+
+            document.getElementById(
+                "finalMessage"
+            ).style.display = "block";
+
+
+            /* Create extra hearts */
+
+            for (
+                let i = 0;
+                i < 25;
+                i++
+            ) {
+
+
+                let heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.innerHTML =
+                    "❤️";
+
+
+                heart.style.position =
+                    "fixed";
+
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                heart.style.top =
+                    Math.random() * 100 + "vh";
+
+
+                heart.style.fontSize =
+                    (
+                        15 +
+                        Math.random() * 30
+                    ) + "px";
+
+
+                heart.style.pointerEvents =
+                    "none";
+
+
+                heart.style.zIndex =
+                    "20";
+
+
+                heart.style.transition =
+                    "all 2s ease";
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                setTimeout(
+                    function () {
+
+
+                        heart.style.transform =
+                            "translateY(-200px)";
+
+
+                        heart.style.opacity =
+                            "0";
+
+
+                    },
+                    100
+                );
+
+
+                setTimeout(
+                    function () {
+
+
+                        heart.remove();
+
+
+                    },
+                    2200
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
